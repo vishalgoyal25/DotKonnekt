@@ -1,0 +1,27 @@
+# Advanced RAG Q&A System - dependencies
+#
+# Minimum bounds rather than exact pins: exact pins tend to break on a
+# different Python version or OS, and this project has no version-sensitive
+# behaviour. Every package below is used directly - nothing is here "just in
+# case".
+
+# LLM access. One SDK for both providers: Groq and Cerebras both expose
+# OpenAI-compatible endpoints, so switching is a base_url change, not a
+# code change.
+openai>=1.40.0
+
+# Reads GROQ_API_KEY / CEREBRAS_API_KEY from .env
+python-dotenv>=1.0.0
+
+# Vector store. Local persistent client - a folder on disk, no server.
+chromadb>=0.5.0
+
+# Sparse keyword retrieval (BM25Okapi)
+rank-bm25>=0.2.2
+
+# Local embeddings (all-MiniLM-L6-v2). Runs on CPU, no API key, no cost.
+# This is the heavy install - it pulls in PyTorch.
+sentence-transformers>=3.0.0
+
+# Streamlit UI (bonus deliverable 1)
+streamlit>=1.35.0
