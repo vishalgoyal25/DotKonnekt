@@ -1,0 +1,73 @@
+# ---------------------------------------------------------------------------
+# Secrets — never commit these
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+
+# ---------------------------------------------------------------------------
+# Private assignment material — not ours to publish
+# The assignment PDF is marked "Confidential — for candidate use only".
+# The build-prompt file is a personal working note, not part of the submission.
+# ---------------------------------------------------------------------------
+*.pdf
+claude_code_prompt_advanced_rag.md
+
+
+# ---------------------------------------------------------------------------
+# Internal build notes — kept locally, not shown to the recruiter.
+# Their substance is folded into README.md, which is the graded artefact.
+# ---------------------------------------------------------------------------
+CLAUDE.md
+PHASES.md
+DECISIONS.md
+
+
+# ---------------------------------------------------------------------------
+# Python environment & bytecode
+# ---------------------------------------------------------------------------
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+
+# ---------------------------------------------------------------------------
+# Generated at runtime — rebuilt by `python ingest.py`, so committing it would
+# only add binary noise to the repo.
+# ---------------------------------------------------------------------------
+chroma_db/
+
+
+# ---------------------------------------------------------------------------
+# Logs — the trace format is a graded bonus deliverable, so one short sample
+# file IS committed as evidence. Full local run logs are not.
+# ---------------------------------------------------------------------------
+logs/*.jsonl
+!logs/sample_trace.jsonl
+
+
+# ---------------------------------------------------------------------------
+# Editor & OS noise
+# ---------------------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+# ---------------------------------------------------------------------------
+# Deliberately NOT ignored — these must reach the recruiter:
+#   README.md        all five deliverables
+#   docs/            the 15-document synthetic corpus
+#   transcripts/     sample run (Deliverable 3)
+#   eval_set.json    gold answers (Bonus 2)
+#   *.py             all application code
+#   requirements.txt, .env.example
+# ---------------------------------------------------------------------------
