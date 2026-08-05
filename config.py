@@ -13,6 +13,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# The embedding model is already downloaded (Phase 4). Without this,
+# sentence-transformers checks Hugging Face's servers for model updates on
+# every single run, even against a fully cached model - which is the main
+# cause of slow startup on every script that loads the embedder. Must be set
+# before sentence_transformers is imported anywhere.
+os.environ.setdefault("HF_HUB_OFFLINE", "1")
+os.environ.setdefault("TRANSFORMERS_OFFLINE", "1")
+
 
 # --- Paths -----------------------------------------------------------------
 
