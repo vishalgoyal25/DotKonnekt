@@ -33,6 +33,7 @@ Python SDK — see [Architecture](#architecture) for why two providers are used.
 ```bash
 python -m venv .venv
 .venv\Scripts\activate        # Windows
+# source .venv/bin/activate   # macOS/Linux (this project was built and tested on Windows)
 pip install -r requirements.txt
 ```
 
@@ -95,6 +96,12 @@ whether the corrective loop fired, sources cited).
 
 Every LLM call made by either front end is logged to `logs/trace.jsonl`
 (see [Tracing](#tracing--logs)) — nothing is silently retried or hidden.
+
+### 5. (Optional) Run the evaluation harness
+
+To score the system against the 12-question gold-answer set instead of
+asking your own questions, see [Evaluation](#evaluation) below —
+`python evaluate.py` runs it end to end and prints a results table.
 
 ---
 
