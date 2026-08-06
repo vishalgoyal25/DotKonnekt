@@ -1,0 +1,76 @@
+[
+  {
+    "id": "E01",
+    "question": "What version is the Shopify connector on?",
+    "gold_answer": "The Shopify Plus connector is currently version v4.2 (nb-connect-shopify v4.2).",
+    "expected_citations": ["05_integration_guide"]
+  },
+  {
+    "id": "E02",
+    "question": "What is the trial length, and what does the Growth tier include?",
+    "gold_answer": "The trial is 14 days (per the pricing document). The Growth tier includes up to 6 agentic templates, up to 10 connected data sources, priority support, and one FDE engagement of up to 8 weeks.",
+    "expected_citations": ["09_pricing_tiers"]
+  },
+  {
+    "id": "E03",
+    "question": "How long is the free trial?",
+    "gold_answer": "The pricing document states a 14-day free trial. Note: the contract terms document separately states a 30-day evaluation period - this is a deliberate documentation conflict in the corpus.",
+    "expected_citations": ["09_pricing_tiers"]
+  },
+  {
+    "id": "E04",
+    "question": "What is Northbay's refund policy?",
+    "gold_answer": "No document states a general refund policy. There is a related but distinct 30-day evaluation-period cancellation right in the contract terms document, which is not the same as a refund policy.",
+    "expected_citations": [],
+    "expect_abstain": true
+  },
+  {
+    "id": "E05",
+    "question": "How many employees does Northbay have?",
+    "gold_answer": "No document in the corpus states Northbay's headcount.",
+    "expected_citations": [],
+    "expect_abstain": true
+  },
+  {
+    "id": "E06",
+    "question": "Do you support on-premise deployment in the EU?",
+    "gold_answer": "No. Northbay only supports cloud deployments (AWS, Azure, GCP), with data residency in US-East, US-West, or EU-Central. On-premise is never mentioned as an option.",
+    "expected_citations": ["07_security_data_handling"]
+  },
+  {
+    "id": "E07",
+    "question": "How do the retail and B2B customer outcomes compare?",
+    "gold_answer": "The retail case study measured outcome as margin recovered (3.2 percentage points) from earlier markdown timing. The B2B case study measured outcome as accounts re-engaged before renewal (11 of 14, vs. ~4 the prior year).",
+    "expected_citations": ["12_case_study_consumer_goods"]
+  },
+  {
+    "id": "E08",
+    "question": "What does FDE stand for?",
+    "gold_answer": "FDE stands for Forward-Deployed Engineer.",
+    "expected_citations": ["04_embedded_engineering_model"]
+  },
+  {
+    "id": "E09",
+    "question": "What agentic template would help with slow-moving inventory?",
+    "gold_answer": "The Markdown Timing Agent, a merchandising template that suggests when to begin markdowns based on historical sell-through curves.",
+    "expected_citations": ["03_agentic_template_catalogue"]
+  },
+  {
+    "id": "E10",
+    "question": "Does Northbay hold SOC 2 certification?",
+    "gold_answer": "Yes. Northbay's platform holds SOC 2 Type II certification, renewed annually.",
+    "expected_citations": ["07_security_data_handling"]
+  },
+  {
+    "id": "E11",
+    "question": "How long does onboarding typically take before an agent goes live?",
+    "gold_answer": "Onboarding follows a default timeline of about 30 days, from kickoff through the go-live decision, though this is a default expectation rather than a contractual deadline and can extend if data source connection takes longer than expected.",
+    "expected_citations": ["14_onboarding_runbook"]
+  },
+  {
+    "id": "E12",
+    "question": "What services does Northbay offer besides AI Strategy?",
+    "gold_answer": "Besides AI Strategy, Northbay offers AI Studio Deployment, Agentic AI Development, FDE-Led Execution, and Integration & Governance.",
+    "expected_citations": ["02_service_catalogue"]
+  }
+]
