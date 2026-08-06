@@ -30,12 +30,25 @@ Python SDK — see [Architecture](#architecture) for why two providers are used.
 
 ### 1. Install dependencies
 
+Use `python` or `python3` below, whichever your system recognizes
+(`python3 --version` to check).
+
+**Windows:**
 ```bash
 python -m venv .venv
-.venv\Scripts\activate        # Windows
-# source .venv/bin/activate   # macOS/Linux (this project was built and tested on Windows)
+.venv\Scripts\activate
 pip install -r requirements.txt
 ```
+
+**macOS / Linux:**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+This project was built and tested on Windows; the macOS/Linux commands above
+are the standard equivalents for the same steps.
 
 `sentence-transformers` pulls in PyTorch and is the slow part of this
 install — expect a few minutes on first run.
@@ -50,7 +63,8 @@ install — expect a few minutes on first run.
 ### 2. Configure API keys
 
 ```bash
-copy .env.example .env
+copy .env.example .env     # Windows
+# cp .env.example .env     # macOS/Linux
 ```
 
 Open `.env` and paste in your Groq and Cerebras keys. `.env` is git-ignored
@@ -70,7 +84,8 @@ the index from scratch each time, no stale leftovers).
 
 ### 4. Run it
 
-Two interchangeable front ends, same pipeline underneath:
+Two interchangeable front ends, same pipeline underneath — **pick one**, you
+don't need to run both:
 
 **Command line:**
 ```bash
