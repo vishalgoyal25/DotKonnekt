@@ -21,7 +21,7 @@ def main():
         if not question:
             continue
 
-        if question.lower() in ("/exit", "/quit"):
+        if question.lower() in ("/exit", "/quit", "exit", "quit"):
             break
 
         if question.lower() == "/dump":
