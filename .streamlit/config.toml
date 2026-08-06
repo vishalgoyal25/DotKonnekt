@@ -1,0 +1,18 @@
+# Streamlit config, committed to the repo so this applies for anyone who
+# runs the app - not just a local workaround.
+#
+# fileWatcherType = "none" turns off Streamlit's auto-reload-on-save file
+# watcher. That watcher walks every imported package looking for source
+# files to monitor, including sentence-transformers' dependency
+# `transformers`, which has optional vision-model submodules (mobilevit,
+# nougat, oneformer, ...) that only import cleanly if `torchvision` is
+# installed. We don't use torchvision - this app only does text embeddings
+# - so those submodules were never meant to load, and the watcher's probe
+# was harmless but printed a traceback for each one it touched.
+#
+# Trade-off: editing app.py while `streamlit run` is active will no longer
+# auto-refresh the browser. Press "R" in the browser or restart the
+# command after making changes.
+
+[server]
+fileWatcherType = "none"

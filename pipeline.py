@@ -58,6 +58,15 @@ def answer_question(question, history=None):
 
     result = generate_answer(canonical_query, final_chunks)
 
+    # Per-source detail for the UI (Phase 11) - purely additive, no new
+    # calls. final_chunks already carries doc_id/text/rerank_score per
+    # chunk from the rerank step; this just exposes it instead of
+    # discarding it down to cited_docs/top_score alone.
+    sources = [
+        {"doc_id": c["doc_id"], "score": c.get("rerank_score"), "excerpt": c["text"][:300]}
+        for c in final_chunks
+    ]
+
     return {
         "question": question,
         "transform_action": transform_result["action"],
@@ -66,6 +75,7 @@ def answer_question(question, history=None):
         "num_candidates_fused": len(fused),
         "corrective_fired": corrective_fired,
         "reformulated_query": reformulated_query,
+        "sources": sources,
         "top_score": result["top_score"],
         "abstained": result["abstained"],
         "answer": result["answer"],

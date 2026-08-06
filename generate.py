@@ -73,7 +73,17 @@ def generate_answer(query, ranked_chunks):
     # Never trust what the model claims it cited - check against the doc
     # IDs actually present in the context it was given. See DECISIONS.md D-13.
     valid_doc_ids = {c["doc_id"] for c in ranked_chunks}
-    verified = [cid for cid in cited_ids if cid in valid_doc_ids]
+
+    # A citation counts as verified if it was parsed cleanly from the
+    # "Sources:" line, OR the doc ID simply appears anywhere in the raw
+    # response - this second check recovers citations the model gave in a
+    # different format (inline brackets, trailing punctuation) that a
+    # strict line-parse would otherwise miss, without weakening the
+    # fabrication check below (a made-up ID still won't match any real one).
+    verified = {cid for cid in cited_ids if cid in valid_doc_ids}
+    verified |= {doc_id for doc_id in valid_doc_ids if doc_id in raw}
+    verified = sorted(verified)
+
     invalid = [cid for cid in cited_ids if cid not in valid_doc_ids]
 
     return {
