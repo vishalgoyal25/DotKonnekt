@@ -94,6 +94,21 @@ whether the corrective loop fired, sources cited).
 > already disabled via the committed `.streamlit/config.toml`
 > (`fileWatcherType = "none"`).
 
+**Try it yourself** — ask these, in order, to see every technique in action:
+
+| # | Question | What it shows |
+|---|---|---|
+| 1 | `What version is the Shopify connector on?` | A normal question, answered from one document, with a citation |
+| 2 | *(as a follow-up to Q1)* `What integrations does it support?` | Query transform's **"rewrite"** case — "it" only makes sense given Q1's history, so the model rewrites it into a standalone question before retrieval |
+| 3 | `What is the trial length, and what does the Growth tier include?` | Query transform's **"decompose"** case — a compound question split in two, pulling from two documents |
+| 4 | `How many employees does Northbay have?` | The corrective loop firing on a genuine coverage gap, followed by a real, model-generated abstain |
+| 5 | `What is Northbay's annual revenue?` | A second, independent abstain case |
+
+Questions 1, 3, 4, and 5 are the same four used in the committed
+[sample transcript](transcripts/sample_run.md), so you can compare your own
+run against a known-good one. Question 2 is new here — it's the one case
+(query rewriting) the committed transcript doesn't cover on its own.
+
 Every LLM call made by either front end is logged to `logs/trace.jsonl`
 (see [Tracing](#tracing--logs)) — nothing is silently retried or hidden.
 
